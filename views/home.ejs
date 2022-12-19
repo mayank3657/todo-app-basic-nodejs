@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <script src="https://kit.fontawesome.com/238dd11eb7.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-color: cadetblue;
+        }
+        h1{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>todo</h1>
+    <ul>
+        <% for(let i of to_do){%>
+            <li>
+                <div class="details">
+                    <p><%= i.task %></p>
+                    <p><%= i.date%></p>
+                </div>
+                <div class="delete-button">
+                    <a href="/delete-task/?task=<%= i.task %>">
+                        <i class="fas fa-window-close"></i>
+                    </a>
+                </div>
+            </li>
+        <% } %>
+    </ul>
+    <form action="create-task" method="post">
+        <input type="text" name="task" id="" placeholder="enter task" required>
+        <input type="date" name="date" id="" placeholder="enter date" required>
+        <input type="submit" name="" id="" value="add">
+    </form>
+</body>
+</html>
